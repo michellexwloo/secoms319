@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
           // Display the corresponding text
           document.getElementById('formula-text').textContent = selectedConversionData.text;
+          document.getElementById('formula-text2').textContent = selectedConversionData.formula;
         });
       });
   });
