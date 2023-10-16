@@ -36,7 +36,35 @@
         </div>
     </header>
 
+    <script src="./time.js"></script>
+    <div id="content">
+        <form id="time-form">
+            <label for="input-value">Enter Time:</label>
+            <input type="number" id="input-value" required>
 
+            <label for="conversion-type">Choose Conversion:</label>
+            <select id="conversion-type">
+                <option value="hourToMinute">Hour to Minute</option>
+                <option value="hourToSecond">Hour to Second</option>
+                <option value="minuteToSecond">Minute to Second</option>
+                <option value="secondToHour">Second to Hour</option>
+                <option value="secondToMinute">Second to Minute</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result">
+            Result: <span id="converted-value"></span>
+        </div>
+
+        <div id="formula-image">
+            <img src="" alt="Conversion Formula">
+        </div>
+        <div id="formula-text">
+            <!--Text display here, handled by js file-->
+        </div>
+    </div>
 
     <!-- Footer -->
     <div class="container">

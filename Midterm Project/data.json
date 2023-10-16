@@ -2,16 +2,49 @@
     {
       "id": "celsiusToFahrenheit",
       "imagePath": "./images/CelsiusToFahrenheit.jpg",
-      "text": "Convert Celsius to Fahrenheit by multiplying by 9/5 and adding 32."
+      "text": "Convert Celsius to Fahrenheit by multiplying by 9/5 and adding 32.",
+      "formula": "C * 9/5 + 32"
     },
     {
       "id": "fahrenheitToKelvin",
       "imagePath": "./images/FahrenheitToKelvin.png",
-      "text": "Convert Fahrenheit to Kelvin by subtracting 32 then multiplying by 5/9 and adding 273.15."
+      "text": "Convert Fahrenheit to Kelvin by subtracting 32 then multiplying by 5/9 and adding 273.15.",
+      "formula": "(F-32) * 5/9 + 273.15"
     },
     {
       "id": "fahrenheitToCelsius",
       "imagePath": "./images/FahrenheitToCelsius.jpg",
-      "text": "Convert Fahrenheit to Celsius by subtracting 32 and then divide by 1.8."
+      "text": "Convert Fahrenheit to Celsius by subtracting 32 and then divide by 1.8.",
+      "formula": "(F-32) / 1.8"
+    },
+    {
+        "id": "hourToMinute",
+        "imagePath": "./images/HourToMinute.jpg",
+        "text": "Convert hours to minutes by multiplying by 60.",
+        "formula": "H * 60"
+    },
+    {
+        "id": "hourToSecond",
+        "imagePath": "./images/HourToSecond.jpg",
+        "text": "Convert hours to seconds by multiplying by 3600.",
+        "formula": "H * 3600"
+    },
+    {
+        "id": "minuteToSecond",
+        "imagePath": "./images/MinuteToSecond.jpg",
+        "text": "Convert minutes to seconds by multiplying by 60.",
+        "formula": "M * 60"
+    },
+    {
+        "id": "secondToHour",
+        "imagePath": "./images/SecondToHour.jpg",
+        "text": "Convert seconds to hours by dividing by 3600.",
+        "formula": "S / 3600"
+    },
+    {
+        "id": "secondToMinute",
+        "imagePath": "./images/SecondToMinute.jpg",
+        "text": "Convert seconds to minutes by dividing by 60.",
+        "formula": "S / 60"
     }
   ]
