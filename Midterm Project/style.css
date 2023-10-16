@@ -22,11 +22,22 @@ header {
   
   /* Additional styling for the pages */
   body {
-    background-color: grey;
+    background-color: lightgray;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
   }
+
+  body #team{
+    padding-left: 60px;
+}
+body .student{
+    margin-bottom: 20px;
+    border: 2px solid #000000;
+    padding: 20px;
+    font-size: larger;
+    background-color: white;
+}
 
 
   footer {
