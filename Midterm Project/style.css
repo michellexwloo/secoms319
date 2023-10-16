@@ -1,0 +1,34 @@
+/* Styling for the navigation bar */
+header {
+  height: 100px;
+  background-color: rgba(57, 57, 57, 0.869);
+  align-items: center;
+  color: aliceblue;
+}
+
+.nav-link {
+  color: white;
+  text-decoration-line: underline;
+}
+
+.nav-pills>li>a.active {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+}
+
+.nav-item {
+  font-size: larger;
+}
+  
+  /* Additional styling for the pages */
+  body {
+    background-color: grey;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  footer {
+    font-family: 'Times New Roman', Times, serif;
+}
