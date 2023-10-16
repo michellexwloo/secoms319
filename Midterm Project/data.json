@@ -1,0 +1,17 @@
+[
+    {
+      "id": "celsiusToFahrenheit",
+      "imagePath": "./images/CelsiusToFahrenheit.jpg",
+      "text": "Convert Celsius to Fahrenheit by multiplying by 9/5 and adding 32."
+    },
+    {
+      "id": "fahrenheitToKelvin",
+      "imagePath": "./images/FahrenheitToKelvin.png",
+      "text": "Convert Fahrenheit to Kelvin by subtracting 32 then multiplying by 5/9 and adding 273.15."
+    },
+    {
+      "id": "fahrenheitToCelsius",
+      "imagePath": "./images/FahrenheitToCelsius.jpg",
+      "text": "Convert Fahrenheit to Celsius by subtracting 32 and then divide by 1.8."
+    }
+  ]

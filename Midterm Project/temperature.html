@@ -22,20 +22,50 @@
     <header>
         <div class="d-flex justify-content-between">
             <span
-                style="font-size: xxx-large; font-family:Georgia, 'Times New Roman', Times, serif; padding-left: 40px; line-height: 100px;">Temperature Converter</span>
+                style="font-size: xxx-large; font-family:Georgia, 'Times New Roman', Times, serif; padding-left: 40px; line-height: 100px;">Temperature
+                Converter</span>
 
             <ul class="nav nav-pills"
                 style="line-height: 40px; padding-top: 20px; padding-right: 20px; font-family: 'Times New Roman', Times, serif; font-size: larger;">
                 <li class="nav-item"><a href="./index.html" class="nav-link"><strong>Home</strong></a></li>
                 <li class="nav-item"><a href="./length.html" class="nav-link"><strong>Length</strong></a></li>
                 <li class="nav-item"><a href="./weight.html" class="nav-link"><strong>Weight</strong></a></li>
-                <li class="nav-item"><a href="./temperature.html" class="nav-link active"  aria-current="page"><strong>Temperature</strong></a></li>
+                <li class="nav-item"><a href="./temperature.html" class="nav-link active"
+                        aria-current="page"><strong>Temperature</strong></a></li>
                 <li class="nav-item"><a href="./time.html" class="nav-link"><strong>Time</strong></a></li>
                 <li class="nav-item"><a href="./about.html" class="nav-link"><strong>About Us</strong></a></li>
             </ul>
         </div>
     </header>
 
+    <script src="temperature.js"></script>
+    <div id="content">
+        <form id="temperature-form">
+            <label for="input-value">Enter Temperature:</label>
+            <input type="number" id="input-value" required>
+
+            <label for="conversion-type">Choose Conversion:</label>
+            <select id="conversion-type">
+                <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+                <option value="fahrenheitToKelvin">Fahrenheit to Kelvin</option>
+                <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+                <!-- Add more conversion options as needed -->
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result">
+            Result: <span id="converted-value"></span>
+        </div>
+
+        <div id="formula-image">
+            <img src="" alt="Conversion Formula">
+        </div>
+        <div id="formula-text">
+            <!--Text display here, handled by js file-->
+        </div>
+    </div>
 
 
     <!-- Footer -->
