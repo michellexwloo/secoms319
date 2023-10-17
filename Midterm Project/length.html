@@ -38,6 +38,42 @@
 
     <script src="./length.js"></script>
 
+    <div id="content">
+        <form id="length-form">
+            <label for="input-value">Enter Length:</label>
+            <input type="number" id="input-value" required>
+
+            <label for="conversion-type">Choose Conversion:</label>
+            <select id="conversion-type">
+                <option value="footToInch">Foot to Inch</option>
+                <option value="yardToFoot">Yard to Foot</option>
+                <option value="yardToInch">Yard to Inch</option>
+                <option value="meterToMillimeter">Meter to Millimeter</option>
+                <option value="meterToCentimeter">Meter to Centimeter</option>
+                <option value="millimetersToCentimeter">Millimeters to Centimeters</option>
+                <option value="centimeterToMeter">Centimeter to Meter</option>
+                <option value="millimeterToMeter">Millimeter to Meter</option>
+
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result">
+            Result: <span id="converted-value"></span>
+        </div>
+
+        <div id="formula-image">
+            <img src="" alt="Conversion Formula">
+        </div>
+        <div id="formula-text">
+            <!--Text display here, handled by js file-->
+        </div>
+        <div id="formula-text2">
+            <!--Text formula display here, handled by js file-->
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <div class="container">
