@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             result = inputValue * 1000;
           } else if (selectedConversionType === 'meterToCentimeter') {
             result = inputValue * 100;
-          } else if (selectedConversionType === 'millimetersToCentimeter') {
+          } else if (selectedConversionType === 'millimeterToCentimeter') {
             result = inputValue / 10;
           } else if (selectedConversionType === 'centimeterToMeter') {
             result = inputValue / 100;
