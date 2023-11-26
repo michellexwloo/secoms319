@@ -1,0 +1,59 @@
+/* Styling for the navigation bar */
+header {
+  height: 100px;
+  background-color: rgba(57, 57, 57, 0.869);
+  align-items: center;
+  color: aliceblue;
+}
+
+.nav-link {
+  color: white;
+  text-decoration-line: underline;
+}
+
+.nav-pills>li>a.active {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
+}
+
+.nav-item {
+  font-size: larger;
+}
+
+/* Additional styling for all pages */
+body {
+  background-color: lightgray;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+body #content{
+  margin: 0;
+  padding: 10px;
+  font-size: 16pt;
+}
+
+
+/* CSS style for about.html */
+body #team {
+  padding-left: 60px;
+}
+
+body .student {
+  margin-bottom: 20px;
+  border: 2px solid #000000;
+  padding: 20px;
+  font-size: larger;
+  background-color: white;
+}
+
+/* CSS for setting the size of images */
+#formula-image img {
+  width: 400px;
+  height: 300px;
+}
+
+footer {
+  font-family: 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="d-flex justify-content-between">
+            <span
+                style="font-size: xxx-large; font-family:Georgia, 'Times New Roman', Times, serif; padding-left: 40px; line-height: 100px;">My
+                Unit Converter</span>
+
+            <ul class="nav nav-pills"
+                style="line-height: 40px; padding-top: 20px; padding-right: 20px; font-family: 'Times New Roman', Times, serif; font-size: larger;">
+                <li class="nav-item"><a href="./index.html" class="nav-link active"
+                        aria-current="page"><strong>Home</strong></a></li>
+                <li class="nav-item"><a href="./length.html" class="nav-link"><strong>Length</strong></a></li>
+                <li class="nav-item"><a href="./weight.html" class="nav-link"><strong>Weight</strong></a></li>
+                <li class="nav-item"><a href="./temperature.html" class="nav-link"><strong>Temperature</strong></a></li>
+                <li class="nav-item"><a href="./time.html" class="nav-link"><strong>Time</strong></a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link"><strong>About Us</strong></a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="Container"
+        style="font-size: xx-large; padding-left: 180px; padding-right: 180px; padding-top: 50px; padding-bottom: 50px; font-family: 'Times New Roman', Times, serif;">
+        <p>
+            Convert your problems away!<br><br>
+            Simply select a converter from the options above, choose your units, enter your value, and click 'convert'.<br><br>
+            Easy, peasy, lemon... converted from one whole lemon into lemon slices of your preferred size.
+        </p>
+    </div>
+
+    <div style= "padding-left: 180px; font-size: large">
+        <script src = "index.js"></script>
+        <p>Not sure what you want to convert? Click this button to go to a random converter! >>> 
+            <button type="nav-item" onclick="goToRandom();">Go To Random</button></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">&copy; Team 24</p>
+        </footer>
+    </div>
+</body>
+
+</html>

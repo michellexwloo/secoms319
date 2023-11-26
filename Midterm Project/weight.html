@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="d-flex justify-content-between">
+            <span
+                style="font-size: xxx-large; font-family:Georgia, 'Times New Roman', Times, serif; padding-left: 40px; line-height: 100px;">Weigth Converter</span>
+
+            <ul class="nav nav-pills"
+                style="line-height: 40px; padding-top: 20px; padding-right: 20px; font-family: 'Times New Roman', Times, serif; font-size: larger;">
+                <li class="nav-item"><a href="./index.html" class="nav-link"><strong>Home</strong></a></li>
+                <li class="nav-item"><a href="./length.html" class="nav-link"><strong>Length</strong></a></li>
+                <li class="nav-item"><a href="./weight.html" class="nav-link active" aria-current="page"><strong>Weight</strong></a></li>
+                <li class="nav-item"><a href="./temperature.html" class="nav-link"><strong>Temperature</strong></a></li>
+                <li class="nav-item"><a href="./time.html" class="nav-link"><strong>Time</strong></a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link"><strong>About Us</strong></a></li>
+            </ul>
+        </div>
+    </header>
+
+
+    <script src="./weight.js"></script>
+
+    <div id="content">
+        <form id="weight-form">
+            <label for="input-value">Enter Weight:</label>
+            <input type="number" id="input-value" required>
+
+            <label for="conversion-type">Choose Conversion:</label>
+            <select id="conversion-type">
+                <option value="milligramToGram">Milligram to Gram</option>
+                <option value="gramToKilogram">Gram to Kilogram</option>
+                <option value="kilogramToMilligram">Kilogram to Milligram</option>
+                <option value="poundToOunce">Pound to Ounce</option>
+                <option value="ouncesToPound">Ounce to Pound</option>
+                <option value="kilogramToPound">Kilogram to Pound</option>
+                <option value="poundToKilogram">Pound to Kilogram</option>
+
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result">
+            Result: <span id="converted-value"></span>
+        </div>
+
+        <div id="formula-image">
+            <img src="./images/initial.jpg" alt="Conversion Formula">
+        </div>
+        <div id="formula-text">
+            <!--Text display here, handled by js file-->
+        </div>
+        <div id="formula-text2">
+            <!--Text formula display here, handled by js file-->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">&copy; Team 24</p>
+        </footer>
+    </div>
+</body>
+
+</html>

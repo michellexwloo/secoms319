@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="d-flex justify-content-between">
+            <span
+                style="font-size: xxx-large; font-family:Georgia, 'Times New Roman', Times, serif; padding-left: 40px; line-height: 100px;">Length Converter</span>
+
+            <ul class="nav nav-pills"
+                style="line-height: 40px; padding-top: 20px; padding-right: 20px; font-family: 'Times New Roman', Times, serif; font-size: larger;">
+                <li class="nav-item"><a href="./index.html" class="nav-link"><strong>Home</strong></a></li>
+                <li class="nav-item"><a href="./length.html" class="nav-link active" aria-current="page"><strong>Length</strong></a></li>
+                <li class="nav-item"><a href="./weight.html" class="nav-link"><strong>Weight</strong></a></li>
+                <li class="nav-item"><a href="./temperature.html" class="nav-link"><strong>Temperature</strong></a></li>
+                <li class="nav-item"><a href="./time.html" class="nav-link"><strong>Time</strong></a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link"><strong>About Us</strong></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <script src="./length.js"></script>
+
+    <div id="content">
+        <form id="length-form">
+            <label for="input-value">Enter Length:</label>
+            <input type="number" id="input-value" required>
+
+            <label for="conversion-type">Choose Conversion:</label>
+            <select id="conversion-type">
+                <option value="footToInch">Foot to Inch</option>
+                <option value="yardToFoot">Yard to Foot</option>
+                <option value="yardToInch">Yard to Inch</option>
+                <option value="meterToMillimeter">Meter to Millimeter</option>
+                <option value="meterToCentimeter">Meter to Centimeter</option>
+                <option value="millimeterToCentimeter">Millimeters to Centimeters</option>
+                <option value="centimeterToMeter">Centimeter to Meter</option>
+                <option value="millimeterToMeter">Millimeter to Meter</option>
+
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result">
+            Result: <span id="converted-value"></span>
+        </div>
+
+        <div id="formula-image">
+            <img src="./images/initial.jpg" alt="Conversion Formula">
+        </div>
+        <div id="formula-text">
+            <!--Text display here, handled by js file-->
+        </div>
+        <div id="formula-text2">
+            <!--Text formula display here, handled by js file-->
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">&copy; Team 24</p>
+        </footer>
+    </div>
+</body>
+
+</html>

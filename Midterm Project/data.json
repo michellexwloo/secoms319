@@ -1,0 +1,145 @@
+[
+    {
+      "id": "celsiusToFahrenheit",
+      "imagePath": "./images/CelsiusToFahrenheit.jpg",
+      "text": "Convert Celsius to Fahrenheit by multiplying by 9/5 and adding 32.",
+      "formula": "C * 9/5 + 32"
+    },
+    {
+      "id": "fahrenheitToKelvin",
+      "imagePath": "./images/FahrenheitToKelvin.png",
+      "text": "Convert Fahrenheit to Kelvin by subtracting 32 then multiplying by 5/9 and adding 273.15.",
+      "formula": "(F-32) * 5/9 + 273.15"
+    },
+    {
+      "id": "fahrenheitToCelsius",
+      "imagePath": "./images/FahrenheitToCelsius.jpg",
+      "text": "Convert Fahrenheit to Celsius by subtracting 32 and then divide by 1.8.",
+      "formula": "(F-32) / 1.8"
+    },
+    {
+        "id": "hourToMinute",
+        "imagePath": "./images/HourToMinute.jpg",
+        "text": "Convert hours to minutes by multiplying by 60.",
+        "formula": "H * 60"
+    },
+    {
+        "id": "hourToSecond",
+        "imagePath": "./images/HourToSecond.jpg",
+        "text": "Convert hours to seconds by multiplying by 3600.",
+        "formula": "H * 3600"
+    },
+    {
+        "id": "minuteToSecond",
+        "imagePath": "./images/MinuteToSecond.jpg",
+        "text": "Convert minutes to seconds by multiplying by 60.",
+        "formula": "M * 60"
+    },
+    {
+        "id": "secondToHour",
+        "imagePath": "./images/SecondToHour.jpg",
+        "text": "Convert seconds to hours by dividing by 3600.",
+        "formula": "S / 3600"
+    },
+    {
+        "id": "secondToMinute",
+        "imagePath": "./images/SecondToMinute.jpg",
+        "text": "Convert seconds to minutes by dividing by 60.",
+        "formula": "S / 60"
+    },
+
+
+    {
+      "id": "milligramToGram",
+      "imagePath": "./images/metricWeight.jpg",
+      "text": "Convert milligrams to grams by dividing by 1000.",
+      "formula": "mg / 1000"
+    },
+    {
+      "id": "gramToKilogram",
+      "imagePath": "./images/metricWeight.jpg",
+      "text": "Convert grams to kilograms by dividing by 1000.",
+      "formula": "g / 1000"
+    },
+    {
+      "id": "kilogramToMilligram",
+      "imagePath": "./images/metricWeight.jpg",
+      "text": "Convert kilograms to milograms by dividing by 1,000,000.",
+      "formula": "kg / 1,000,000"
+    },
+    {
+      "id": "poundToOunce",
+      "imagePath": "./images/poundToOunce.jpg",
+      "text": "Convert pounds to ounces by dividing by 16.",
+      "formula": "lb / 16"
+    },
+    {
+      "id": "ounceToPound",
+      "imagePath": "./images/poundToOunce.jpg",
+      "text": "Convert ounces to pounds by multiplying by 16.",
+      "formula": "oz * 16"
+    },
+    {
+      "id": "kilogramToPound",
+      "imagePath": "./images/poundToKilogram.jpg",
+      "text": "Convert kilograms to pounds by multiplying by 2.205.",
+      "formula": "kg * 2.205"
+    },
+    {
+      "id": "poundToKilogram",
+      "imagePath": "./images/poundToKilogram.jpg",
+      "text": "Convert pounds to kilograms by dividing by 2.205.",
+      "formula": "lb / 2.205"
+    },
+
+
+    {
+      "id": "footToInch",
+      "imagePath": "./images/lengthImperial.jpg",
+      "text": "Convert feet to inches by dividing by 12.",
+      "formula": "ft / 12"
+    },
+    {
+      "id": "yardToFoot",
+      "imagePath": "./images/lengthImperial.jpg",
+      "text": "Convert yards to feet by multiplying by 3.",
+      "formula": "yd * 3"
+    },
+    {
+      "id": "yardToInch",
+      "imagePath": "./images/lengthImperial.jpg",
+      "text": "Convert yards to inches by multiplying by 36.",
+      "formula": "yd * 36"
+    },
+    {
+      "id": "meterToMillimeter",
+      "imagePath": "./images/lengthMetric.jpg",
+      "text": "Convert meters to millimeters by multiplying by 1000.",
+      "formula": "m * 1000"
+    },
+    {
+      "id": "meterToCentimeter",
+      "imagePath": "./images/lengthMetric.jpg",
+      "text": "Convert meters to centimeters by multiplying by 100.",
+      "formula": "m * 100"
+    },
+    {
+      "id": "millimeterToCentimeter",
+      "imagePath": "./images/lengthMetric.jpg",
+      "text": "Convert millimeters to centimeters by dividing by 10.",
+      "formula": "mm / 10"
+    },
+    {
+      "id": "centimeterToMeter",
+      "imagePath": "./images/lengthMetric.jpg",
+      "text": "Convert centimeters to meters by dividing by 100.",
+      "formula": "cm / 100"
+    },
+    {
+      "id": "millimeterToMeter",
+      "imagePath": "./images/lengthMetric.jpg",
+      "text": "Convert millimeters to meters by dividing by 1000.",
+      "formula": "mm / 1000"
+    }
+
+  ]
