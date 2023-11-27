@@ -1,3 +1,4 @@
+
 const sensor = require('node-dht-sensor');
 
 const sensorType = 11;
