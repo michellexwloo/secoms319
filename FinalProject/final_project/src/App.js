@@ -4,20 +4,40 @@ import MainView from './components/MainView';
 import SubView from './components/SubView';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [currentView, setCurrentView] = useState('login');
 
-    const handleLogin = () => {
-        setLoggedIn(true);
-    };
+  const handleLoginSuccess = () => {
+    setCurrentView('main');
+  };
+
+  const handleMainToSubView = () => {
+    setCurrentView('sub');
+  };
+
+  const handleSubViewToMain = () => {
+    setCurrentView('main');
+  };
+
+  const handleLogout = () => {
+    setCurrentView('login');
+  };
 
     return (
         <div>
-            {!loggedIn ? (
-                <Login onLogin={handleLogin} />
-            ) : (
-                <MainView />
-            )}
-        </div>
+      {currentView === 'login' && <Login onLoginSuccess={handleLoginSuccess} />}
+      {currentView === 'main' && (
+        <MainView
+          onMainToSubView={handleMainToSubView}
+          onLogout={handleLogout}
+        />
+      )}
+      {currentView === 'sub' && (
+        <SubView
+          onSubViewToMain={handleSubViewToMain}
+          onLogout={handleLogout}
+        />
+      )}
+    </div>
     );
 }
 

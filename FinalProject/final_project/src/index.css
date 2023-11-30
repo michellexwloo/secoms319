@@ -22,9 +22,17 @@ header {
 }
 
 #subheader {
+  background-color: rgba(0, 75, 0, 0.686);
   color: rgb(0, 0, 0);
-  padding: 0;
+  padding: 10px;
   text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+#content{
+  padding-top: 15px;
+  padding-left: 10px;
   font-family:'Times New Roman', Times, serif;
   font-size: large;
 }
@@ -37,6 +45,12 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+button{
+  font-size: large;
+  width: max-content;
+  height: 30px;
 }
 
 #login {

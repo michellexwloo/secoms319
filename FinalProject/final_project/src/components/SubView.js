@@ -1,6 +1,7 @@
 import React from "react";
 
-function SubView() {
+function SubView({onSubViewToMain, onLogout}) {
+  
   return (
     <div>
       <header>
@@ -8,16 +9,23 @@ function SubView() {
       </header>
 
       <div id="subheader">
-        <h2>Temperature & Humidity Tracker</h2>
+        <h2>Temperature & Humidity Tracker &nbsp;&nbsp;
+        <button onClick={onLogout}>Logout</button>
+        </h2>
       </div>
 
-      <h2>Sub View</h2>
+      <div id="content">
+      <h1>°C &nbsp;&nbsp;
+      <button onClick={onSubViewToMain}>Convert to Fahrenheit</button>
+      </h1>
       {/* TODO */}
 
+      </div>
       <footer>
         <p>&copy; Wan Yeen Trading's Warehouse Tracker. All rights reserved.</p>
       </footer>
     </div>
+    
   );
 }
 

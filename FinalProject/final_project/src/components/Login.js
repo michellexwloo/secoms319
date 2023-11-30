@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Login({ onLogin }) {
+function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +20,7 @@ function Login({ onLogin }) {
 
     if (user) {
       // Successful login
-      onLogin();
+      onLoginSuccess();
     } else {
       // Failed login
       setError("Invalid email or password");
@@ -72,6 +72,7 @@ function Login({ onLogin }) {
         <h2>Temperature & Humidity Tracker</h2>
       </div>
 
+<div id="content">
       <div id="login" style={styles.loginContainer}>
         <h1>Login</h1>
         <div style={styles.loginContainer}>
@@ -95,8 +96,10 @@ function Login({ onLogin }) {
             {showPassword ? "Hide" : "Show"} Password
           </button>
         </div>
+        <div>&nbsp;</div>
         <button onClick={handleLogin}>Login</button>
         {error && <p style={{ color: "red", ...styles.error }}>{error}</p>}
+      </div>
       </div>
 
       <footer>
