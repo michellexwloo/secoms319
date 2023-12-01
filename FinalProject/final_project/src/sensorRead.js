@@ -1,12 +1,13 @@
 
-import { read } from 'node-dht-sensor';
+//import { read } from 'node-dht-sensor';
+const sensor = require('node-dht-sensor')
 
 const sensorType = 11;
 const pin =7;
 let temperatureStore =0;
 let humidityStore =0;
 
-read(sensorType, pin, (temperature, humidity)=>{
+sensor.read(sensorType, pin, (temperature, humidity)=>{
 
         temperatureStore =temperature;
         humidityStore =humidity;
