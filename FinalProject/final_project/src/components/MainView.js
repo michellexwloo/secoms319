@@ -1,7 +1,39 @@
 import React, { useState, useEffect } from "react";
 import SubView from "./SubView";
+import { Container } from "react-bootstrap";
+
+
+
 
 function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
+  
+  const [data, setData] = useState([]);
+  let result ="";
+  let fuck;
+
+  useEffect(() => {
+    // Fetch data when the component mounts
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const response = await fetch('http://localhost:8081/listTemps');
+      response.json().then(data=>{
+        setData(data);
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      
+  
+      result = await response; // Assuming the response contains JSON data
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
+  }
+  
+  
   return (
     <div>
       <header>
@@ -30,6 +62,14 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
           </h1>
         </div>
         {/* TODO */}
+        <h1>100 Most recent temperature and humidity readings</h1>
+        {data.map(item=>(
+          <div key={item._id}>{
+           `DateTime: ${item.DateTime}___Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)___Humidity: ${item.Humidity}%`
+           }
+           </div>
+        ))}
+        
       </div>
       
       <footer>

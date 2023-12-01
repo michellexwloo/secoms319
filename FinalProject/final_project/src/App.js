@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// const React = require("react");
+// const {useState} = require("react");
 import Login from "./components/Login";
 import MainView from "./components/MainView";
 import SubView from "./components/SubView";

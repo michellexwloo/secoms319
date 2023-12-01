@@ -27,6 +27,7 @@ function Login({ onLoginSuccess }) {
     loginContainer: {
       maxWidth: "400px",
       margin: "auto",
+      marginBottom: "10px",
       padding: "20px",
       border: "1px solid #ccc",
       borderRadius: "8px",
