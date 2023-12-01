@@ -5,8 +5,10 @@ import SubView from './components/SubView';
 
 function App() {
     const [currentView, setCurrentView] = useState('login');
+    const [userName, setUserName] = useState('');
 
-  const handleLoginSuccess = () => {
+  const handleLoginSuccess = (name) => {
+    setUserName(name);
     setCurrentView('main');
   };
 
@@ -27,12 +29,14 @@ function App() {
       {currentView === 'login' && <Login onLoginSuccess={handleLoginSuccess} />}
       {currentView === 'main' && (
         <MainView
+        userName = {userName}
           onMainToSubView={handleMainToSubView}
           onLogout={handleLogout}
         />
       )}
       {currentView === 'sub' && (
         <SubView
+        userName = {userName}
           onSubViewToMain={handleSubViewToMain}
           onLogout={handleLogout}
         />

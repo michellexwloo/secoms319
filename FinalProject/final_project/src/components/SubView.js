@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-function SubView({onSubViewToMain, onLogout}) {
+function SubView({userName, onSubViewToMain, onLogout}) {
   
   return (
     <div>
@@ -8,10 +8,10 @@ function SubView({onSubViewToMain, onLogout}) {
         <h1>Wan Yeen Tradings</h1>
       </header>
 
-      <div id="subheader">
-        <h2>Temperature & Humidity Tracker &nbsp;&nbsp;
-        <button onClick={onLogout}>Logout</button>
-        </h2>
+      <div id="subheader2">
+        <div id="title"><h2>Temperature & Humidity Tracker</h2></div>
+        <div id="username">{userName && <h3>{userName}</h3>}
+        <button onClick={onLogout}>Logout</button></div>
       </div>
 
       <div id="content">

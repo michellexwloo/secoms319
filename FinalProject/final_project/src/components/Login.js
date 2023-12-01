@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import usersData from "../employees.json";
 
 function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-
-  const usersData = [
-    // Replace with actual user data fetched from the JSON file or database
-    { email: "user@example.com", password: "password123" },
-    // Add more users
-  ];
 
   const handleLogin = () => {
     // Check if the email and password match any user data
@@ -20,12 +15,12 @@ function Login({ onLoginSuccess }) {
 
     if (user) {
       // Successful login
-      onLoginSuccess();
+      onLoginSuccess(user.name);
     } else {
       // Failed login
       setError("Invalid email or password");
     }
-  };
+  };  
 
   // Styling
   const styles = {
