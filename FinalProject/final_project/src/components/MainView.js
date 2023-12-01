@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SubView from './SubView';
 
-function MainView({userName, onMainToSubView, onLogout}) {
+function MainView({userName, onMainToSubView, onLogout, onAbout}) {
 
   return (
     <div>
@@ -26,6 +26,7 @@ function MainView({userName, onMainToSubView, onLogout}) {
       </div>
       <footer>
         <p>&copy; Wan Yeen Trading's Warehouse Tracker. All rights reserved.</p>
+        <p onClick={onAbout}><u>About Us</u></p>
       </footer>
     </div>
   );

@@ -1,18 +1,49 @@
 import React from "react";
 
-function SubView() {
+function About({userName, onSubViewToMain, onLogout}) {
   return (
     <div>
       <header>
         <h1>Wan Yeen Tradings</h1>
       </header>
 
-      <div id="subheader">
-        <h2>Temperature & Humidity Tracker</h2>
+      <div id="subheader2">
+        <div id="title"><h2>Temperature & Humidity Tracker</h2></div>
+        <div id="username">{userName && <h3>{userName}</h3>}
+        <button onClick={onLogout}>Logout</button></div>
       </div>
 
+      <div id="content">
       <h2>About Us</h2>
       {/* TODO */}
+
+      <h1>SE/COM S 319: Construction of User Interface</h1>
+    <h2>Created by: </h2>
+    <section id="creator">
+        <h4 id="team">Team 24</h4>
+        <div class="container-sm text-center">
+            <div class="row">
+                <div class="col student">
+                    <p>
+                        <strong>Name: </strong>Chris Smith | &nbsp;
+                        <strong>Email: </strong>clsmith3@iastate.edu
+                    </p>
+                </div>
+                <div class="col student">
+                    <p>
+                        <strong>Name: </strong>Xuan Wen Loo | &nbsp;
+                        <strong>Email: </strong>xuanwen@iastate.edu
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <h5>Date: 23 November 2023</h5>
+    <h4>Professor: Dr. Abraham Aldaco</h4>
+
+      <button onClick={onSubViewToMain}>Back to Main</button>
+
+      </div>
 
       <footer>
         <p>&copy; Wan Yeen Trading's Warehouse Tracker. All rights reserved.</p>
@@ -21,4 +52,4 @@ function SubView() {
   );
 }
 
-export default SubView;
+export default About;
