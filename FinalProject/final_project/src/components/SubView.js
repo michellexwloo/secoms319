@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function SubView({userName, onSubViewToMain, onLogout, onAbout}) {
-  
+function SubView({ userName, onSubViewToMain, onLogout, onAbout, onCompany}) {
   return (
     <div>
       <header>
@@ -9,24 +8,46 @@ function SubView({userName, onSubViewToMain, onLogout, onAbout}) {
       </header>
 
       <div id="subheader2">
-        <div id="title"><h2>Temperature & Humidity Tracker</h2></div>
-        <div id="username">{userName && <h3>{userName}</h3>}
-        <button onClick={onLogout}>Logout</button></div>
+        <div id="title">
+          <h2>Temperature & Humidity Tracker</h2>
+        </div>
+        <div id="username" style={{ display: "flex", alignItems: "center" }}>
+          {userName && (
+            <h3 style={{ display: "inline", marginRight: "10px" }}>
+              {userName}
+            </h3>
+          )}
+          <button onClick={onLogout}>Logout</button>
+        </div>
       </div>
 
       <div id="content">
-      <h1>°C &nbsp;&nbsp;
-      <button onClick={onSubViewToMain}>Convert to Fahrenheit</button>
-      </h1>
-      {/* TODO */}
-
+        <h1>
+          °C &nbsp;&nbsp;
+          <button onClick={onSubViewToMain}>Convert to Fahrenheit</button>
+        </h1>
+        {/* TODO */}
       </div>
+      
       <footer>
         <p>&copy; Wan Yeen Trading's Warehouse Tracker. All rights reserved.</p>
-        <p onClick={onAbout}><u>About Us</u></p>
+        <div>
+          <p style={{
+              display: "inline",
+              marginRight: "20px",
+              cursor: "pointer",
+            }}
+            onClick={onAbout}>
+            <u>Developers</u>
+          </p>
+          <p
+            style={{ display: "inline", cursor: "pointer" }}
+            onClick={onCompany}>
+            <u>Company</u>
+          </p>
+        </div>
       </footer>
     </div>
-    
   );
 }
 

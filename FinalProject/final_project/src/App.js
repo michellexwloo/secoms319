@@ -1,64 +1,78 @@
-import React, { useState } from 'react';
-import Login from './components/Login';
-import MainView from './components/MainView';
-import SubView from './components/SubView';
-import About from './components/About';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import MainView from "./components/MainView";
+import SubView from "./components/SubView";
+import About from "./components/About";
+import Company from "./components/Company";
 
 function App() {
-    const [currentView, setCurrentView] = useState('login');
-    const [userName, setUserName] = useState('');
+  const [currentView, setCurrentView] = useState("login");
+  const [userName, setUserName] = useState("");
 
   const handleLoginSuccess = (name) => {
     setUserName(name);
-    setCurrentView('main');
+    setCurrentView("main");
   };
 
   const handleMainToSubView = () => {
-    setCurrentView('sub');
+    setCurrentView("sub");
   };
 
   const handleSubViewToMain = () => {
-    setCurrentView('main');
+    setCurrentView("main");
   };
 
   const handleLogout = () => {
-    setCurrentView('login');
+    setCurrentView("login");
   };
 
   const navToAbout = () => {
-    setCurrentView('about');
-  }
+    setCurrentView("about");
+  };
 
-    return (
-        <div>
-      {currentView === 'login' && <Login onLoginSuccess={handleLoginSuccess} />}
-      {currentView === 'main' && (
+  const navToCompany = () => {
+    setCurrentView("company");
+  };
+
+  return (
+    <div>
+      {currentView === "login" && <Login onLoginSuccess={handleLoginSuccess} />}
+      {currentView === "main" && (
         <MainView
-        userName = {userName}
+          userName={userName}
           onMainToSubView={handleMainToSubView}
           onLogout={handleLogout}
-          onAbout = {navToAbout}
+          onAbout={navToAbout}
+          onCompany={navToCompany}
         />
       )}
-      {currentView === 'sub' && (
+      {currentView === "sub" && (
         <SubView
-        userName = {userName}
+          userName={userName}
           onSubViewToMain={handleSubViewToMain}
           onLogout={handleLogout}
-          onAbout = {navToAbout}
+          onAbout={navToAbout}
+          onCompany={navToCompany}
         />
       )}
-      {
-        currentView === 'about' && (
-          <About
-          userName = {userName}
-            onSubViewToMain={handleSubViewToMain}
-            onLogout={handleLogout}
-          />
-        )}
-      
+      {currentView === "about" && (
+        <About
+          userName={userName}
+          onSubViewToMain={handleSubViewToMain}
+          onLogout={handleLogout}
+          onCompany={navToCompany}
+        />
+      )}
+      {currentView === "company" && (
+        <Company
+          userName={userName}
+          onSubViewToMain={handleSubViewToMain}
+          onLogout={handleLogout}
+          onAbout={navToAbout}
+        />
+      )}
     </div>
-    );
+  );
 }
 
 export default App;

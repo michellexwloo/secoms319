@@ -1,6 +1,6 @@
 import React from "react";
 
-function About({userName, onSubViewToMain, onLogout}) {
+function About({userName, onSubViewToMain, onLogout, onCompany}) {
   return (
     <div>
       <header>
@@ -9,13 +9,18 @@ function About({userName, onSubViewToMain, onLogout}) {
 
       <div id="subheader2">
         <div id="title"><h2>Temperature & Humidity Tracker</h2></div>
-        <div id="username">{userName && <h3>{userName}</h3>}
-        <button onClick={onLogout}>Logout</button></div>
+        <div id="username" style={{ display: "flex", alignItems: "center" }}>
+          {userName && (
+            <h3 style={{ display: "inline", marginRight: "10px" }}>
+              {userName}
+            </h3>
+          )}
+          <button onClick={onLogout}>Logout</button>
+        </div>
       </div>
 
       <div id="content">
       <h2>About Us</h2>
-      {/* TODO */}
 
       <h1>SE/COM S 319: Construction of User Interface</h1>
     <h2>Created by: </h2>
@@ -47,6 +52,7 @@ function About({userName, onSubViewToMain, onLogout}) {
 
       <footer>
         <p>&copy; Wan Yeen Trading's Warehouse Tracker. All rights reserved.</p>
+        <p onClick={onCompany}><u>Company</u></p>
       </footer>
     </div>
   );
