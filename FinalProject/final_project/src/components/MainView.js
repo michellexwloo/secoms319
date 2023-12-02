@@ -9,7 +9,7 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
   
   const [data, setData] = useState([]);
   let result ="";
-  let fuck;
+  let dateStore ="";
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -26,11 +26,19 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
         throw new Error('Failed to fetch data');
       }
       
-  
       result = await response; // Assuming the response contains JSON data
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
+  }
+
+  function formatResponse(){
+    {data.map(item=>(
+      <div key={item._id}>{
+       `DateTime: ${item.DateTime}___Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)___Humidity: ${item.Humidity}%`
+       }
+       </div>
+    ))}
   }
   
   
@@ -61,12 +69,22 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
             <button onClick={onMainToSubView}>Convert to Celsius</button>
           </h1>
         </div>
-        {/* TODO */}
+
         <h1>100 Most recent temperature and humidity readings</h1>
         {data.map(item=>(
-          <div key={item._id}>{
-           `DateTime: ${item.DateTime}___Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)___Humidity: ${item.Humidity}%`
-           }
+          <div key={item._id}>{(() =>{
+            const dateTime = new Date(item.DateTime);
+            const spacing = ' . . . ';
+            const dateSpace = ' . . . . . . . . . . . . . . . . . .';
+
+            if(dateStore != dateTime.toLocaleDateString()){
+              dateStore = dateTime.toLocaleDateString();
+              result = `Date: ${dateTime.toLocaleDateString()}${spacing}Time: ${dateTime.toLocaleTimeString()}${spacing}Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)${spacing}Humidity: ${item.Humidity}%`;
+            }else{
+              result = `${dateSpace}Time: ${dateTime.toLocaleTimeString()}${spacing}Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)${spacing}Humidity: ${item.Humidity}%`;
+            }
+            return result;
+           })()}
            </div>
         ))}
         
