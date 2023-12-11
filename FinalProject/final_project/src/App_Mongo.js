@@ -15,11 +15,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-/*
-DISPLAY:"DATE:11/30/23  TIME: 13:01  
-                        TEMP: 22.2°C (72.0°F)   
-                        HUMIDITY: 45%"
-*/
 app.get("/listTemps", async (req, res) => {
     await client.connect();
     console.log("Node connected successfully to GET MongoDB");
@@ -29,38 +24,58 @@ app.get("/listTemps", async (req, res) => {
     const results = await db
         .collection("TempHumidity")
         .find(query)
+        .sort({ DateTime: -1})
         .limit(100)
         .toArray();
     
-        //console.log(results);
-
-    // Iterate over each result and format it
-    //const formattedResults = results.map(formatAsTable);
-    console.log(results);
+    //console.log(results);
     res.status(200);
     res.send(results);
 });
 
-function formatAsTable(jsonResponse) {
-    // Parse date and time
-    const dateTime = new Date(jsonResponse.DateTime);
-    const dateFormatted = `${dateTime.getMonth() + 1}/${dateTime.getDate()}/${String(dateTime.getFullYear()).slice(-2)}`;
-    const timeFormatted = `${String(dateTime.getHours()).padStart(2, '0')}:${String(dateTime.getMinutes()).padStart(2, '0')}`;
+app.post("/postTemp", async (req, res) => {
+    await client.connect();
+    const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
 
-    // Format temperature
-    const tempCelsius = jsonResponse.Temp_C;
-    const tempFahrenheit = jsonResponse.Temp_F;
-    const tempFormatted = `${tempCelsius.toFixed(1)}°C (${tempFahrenheit.toFixed(1)}°F)`;
+    const dateTime = values[0];
+    const tempC = values[1];
+    const tempF = values[2];
+    const humidity = values[3];
 
-    // Format humidity
-    const humidity = jsonResponse.Humidity;
-    const humidityFormatted = `${humidity}%`;
+    console.log(dateTime, tempC);
+    const newDocument = {
+        "DateTime" : dateTime,
+        "Temp_C" : tempC,
+        "Temp_F" : tempF,
+        "Humidity" : humidity
+    };
 
-    // Create the final string
-    const resultString = `"DATE:${dateFormatted}  TIME: ${timeFormatted}\n  TEMP: ${tempFormatted}\n  HUMIDITY: ${humidityFormatted}"`;
+    const results = await db.collection("TempHumidity").insertOne(newDocument);
+    res.status(200);
+    res.send(results);
+});
 
-    return resultString;
-  }
+// function formatAsTable(jsonResponse) {
+//     // Parse date and time
+//     const dateTime = new Date(jsonResponse.DateTime);
+//     const dateFormatted = `${dateTime.getMonth() + 1}/${dateTime.getDate()}/${String(dateTime.getFullYear()).slice(-2)}`;
+//     const timeFormatted = `${String(dateTime.getHours()).padStart(2, '0')}:${String(dateTime.getMinutes()).padStart(2, '0')}`;
+
+//     // Format temperature
+//     const tempCelsius = jsonResponse.Temp_C;
+//     const tempFahrenheit = jsonResponse.Temp_F;
+//     const tempFormatted = `${tempCelsius.toFixed(1)}°C (${tempFahrenheit.toFixed(1)}°F)`;
+
+//     // Format humidity
+//     const humidity = jsonResponse.Humidity;
+//     const humidityFormatted = `${humidity}%`;
+
+//     // Create the final string
+//     const resultString = `"DATE:${dateFormatted}  TIME: ${timeFormatted}\n  TEMP: ${tempFormatted}\n  HUMIDITY: ${humidityFormatted}"`;
+
+//     return resultString;
+//   }
 
 
 
