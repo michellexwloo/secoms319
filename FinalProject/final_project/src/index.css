@@ -51,6 +51,16 @@ header {
   font-family:'Times New Roman', Times, serif;
   font-size: large;
   min-height: 100vh;
+  overflow-y: scroll; /* Allow vertical scrolling */
+}
+
+#content2{
+  padding-top: 15px;
+  padding-left: 10px;
+  font-family:'Times New Roman', Times, serif;
+  font-size: large;
+  min-height: 600vh;
+  overflow-y: scroll; /* Allow vertical scrolling */
 }
 
 footer {

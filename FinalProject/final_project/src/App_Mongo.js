@@ -11,8 +11,8 @@ const dbName = "secom319_final";
 const client = new MongoClient(url);
 const db = client.db(dbName);
 
-app.use(cors());
 app.use(bodyParser.json());
+app.use(cors());
 
 
 app.get("/listTemps", async (req, res) => {
@@ -31,6 +31,27 @@ app.get("/listTemps", async (req, res) => {
     //console.log(results);
     res.status(200);
     res.send(results);
+});
+
+app.get("/recordCount", async (req, res) => {
+    try{
+    await client.connect();
+    console.log("Node connected successfully to RECORD COUNT");
+    
+    const itemCount = await db
+        .collection("TempHumidity")
+        .countDocuments();
+    
+    const itemArray = {"Records_Found" : itemCount};
+    console.log(itemCount);
+    //res.sendStatus(200);
+    res.send(itemArray);
+    } catch (error) {
+        console.error('Error fetching record count:', error.message);
+        res.status(500).send('Internal Server Error');
+    } finally {
+        //await client.close(); // Close the MongoDB connection
+    }
 });
 
 app.post("/postTemp", async (req, res) => {
@@ -56,27 +77,34 @@ app.post("/postTemp", async (req, res) => {
     res.send(results);
 });
 
-// function formatAsTable(jsonResponse) {
-//     // Parse date and time
-//     const dateTime = new Date(jsonResponse.DateTime);
-//     const dateFormatted = `${dateTime.getMonth() + 1}/${dateTime.getDate()}/${String(dateTime.getFullYear()).slice(-2)}`;
-//     const timeFormatted = `${String(dateTime.getHours()).padStart(2, '0')}:${String(dateTime.getMinutes()).padStart(2, '0')}`;
 
-//     // Format temperature
-//     const tempCelsius = jsonResponse.Temp_C;
-//     const tempFahrenheit = jsonResponse.Temp_F;
-//     const tempFormatted = `${tempCelsius.toFixed(1)}°C (${tempFahrenheit.toFixed(1)}°F)`;
+app.delete("/deleteRecords", async (req, res) => {
+    try{
+    await client.connect();
 
-//     // Format humidity
-//     const humidity = jsonResponse.Humidity;
-//     const humidityFormatted = `${humidity}%`;
+    const query = {};
+    const recentItems = await db.collection("TempHumidity")
+        .find({})
+        .sort({_id: -1})
+        .limit(100)
+        .toArray();
 
-//     // Create the final string
-//     const resultString = `"DATE:${dateFormatted}  TIME: ${timeFormatted}\n  TEMP: ${tempFormatted}\n  HUMIDITY: ${humidityFormatted}"`;
-
-//     return resultString;
-//   }
-
+    if(recentItems.length >100){
+        const recentItemIds = recentItems.map((item) => item._id);
+        const deleteQuery = { _id: { $nin: recentItemIds } };
+        const deleteResult = await db.collection("TempHumidity").deleteMany(deleteQuery);
+        console.log(`Deleted ${deleteResult.deletedCount} items.`);
+    } else{
+        console.log('Less than 101 items in the collection. No deletion performed.');
+        res.send('Less than 101 items in the collection. No deletion performed.').status(200);
+    }
+    } catch (error){
+        console.error('Error deleting records:', error);
+        res.status(500).send('Internal Server Error');
+    } finally{
+        //if (!results) res.send("Not Found").status(404);
+    }
+});
 
 
 const port = "8081";

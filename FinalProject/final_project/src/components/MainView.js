@@ -1,46 +1,68 @@
 import React, { useState, useEffect } from "react";
-import SubView from "./SubView";
-import { Container } from "react-bootstrap";
 
 
-
-
-function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
+function MainView({ userName, onLogout, onAbout, onCompany }) {
   
   const [data, setData] = useState([]);
   let result ="";
   let dateStore ="";
+  const [itemCount, setCount]= useState([]);
 
   useEffect(() => {
     // Fetch data when the component mounts
     fetchData();
+    recordCount();
   }, []);
 
   async function fetchData() {
     try {
       const response = await fetch('http://localhost:8081/listTemps');
-      response.json().then(data=>{
-        setData(data);
-      });
+      // response.json().then(data=>{
+      //   setData(data);
+      // });
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
+      const data = await response.json();
+      setData(data);
       
-      result = await response; // Assuming the response contains JSON data
+      //result = await response; // Assuming the response contains JSON data
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
   }
 
-  function formatResponse(){
-    {data.map(item=>(
-      <div key={item._id}>{
-       `DateTime: ${item.DateTime}___Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)___Humidity: ${item.Humidity}%`
-       }
-       </div>
-    ))}
+  async function recordCount() {
+    //console.log("count");
+    try {
+      const response = await fetch('http://localhost:8081/recordCount');
+   
+      if(!response.ok){
+        throw new Error('Failed to fetch itemCount');
+      }
+      const itemCount = await response.text();
+      setCount(itemCount);
+
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
   }
-  
+
+  async function handleDelete(){
+    try{
+      const response = await fetch('http://localhost:8081/deleteRecords', {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        console.log('Request processed.');
+      } else {
+        console.error('Error deleting records:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
+  };
+
   
   return (
     <div>
@@ -62,12 +84,11 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
         </div>
       </div>
 
-      <div id="content">
+      <div id="content2">
         <div>
-          <h1>
-            °F &nbsp;&nbsp;
-            <button onClick={onMainToSubView}>Convert to Celsius</button>
-          </h1>
+          <p>{itemCount}</p>
+          <p>Click the button below to delete all but the 100 most recent records </p>
+            <button onClick={handleDelete}>Clean collection</button>
         </div>
 
         <h1>100 Most recent temperature and humidity readings</h1>
@@ -77,7 +98,7 @@ function MainView({ userName, onMainToSubView, onLogout, onAbout, onCompany }) {
             const spacing = ' . . . ';
             const dateSpace = ' . . . . . . . . . . . . . . . . . .';
 
-            if(dateStore != dateTime.toLocaleDateString()){
+            if(dateStore !== dateTime.toLocaleDateString()){
               dateStore = dateTime.toLocaleDateString();
               result = `Date: ${dateTime.toLocaleDateString()}${spacing}Time: ${dateTime.toLocaleTimeString()}${spacing}Temperature: ${item.Temp_C}℃ (${item.Temp_F}℉)${spacing}Humidity: ${item.Humidity}%`;
             }else{
