@@ -9,7 +9,7 @@ import requests
 dhtDevice = adafruit_dht.DHT11(board.D4)
 
 #Server info
-#serverURL = "http://127.0.0.1:5000/"
+#serverURL = "http://localhost:8081/postTemp"
 serverURL = "http://192.168.1.115:8081/postTemp"	
 
 dataJSON = "";
