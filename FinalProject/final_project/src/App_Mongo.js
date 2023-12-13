@@ -83,13 +83,18 @@ app.delete("/deleteRecords", async (req, res) => {
     await client.connect();
 
     const query = {};
+
+    const itemCount = await db
+        .collection("TempHumidity")
+        .countDocuments();
+
     const recentItems = await db.collection("TempHumidity")
         .find({})
         .sort({_id: -1})
         .limit(100)
         .toArray();
 
-    if(recentItems.length >100){
+    if(itemCount >100){
         const recentItemIds = recentItems.map((item) => item._id);
         const deleteQuery = { _id: { $nin: recentItemIds } };
         const deleteResult = await db.collection("TempHumidity").deleteMany(deleteQuery);
