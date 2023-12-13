@@ -4,12 +4,13 @@ import adafruit_dht
 from datetime import datetime, timedelta
 import requests
 
-#Connect power to pin 2, ground to pin 6, and data to pin 7 (GPIO 4)
+#Connect power to pin 2, ground to pin 6, and data to pin 7 /GPIO4
 #Initial the dht device, with data pin connected to:
 dhtDevice = adafruit_dht.DHT11(board.D4)
+time.sleep(2)
 
-#Server info
-#serverURL = "http://localhost:8081/postTemp"
+#Server info,  change IP address of serverURL to the IP where the server is running
+#serverURL = "http://localhost:8081/postTemp"	
 serverURL = "http://192.168.1.115:8081/postTemp"	
 
 dataJSON = "";
@@ -24,6 +25,8 @@ while True:
 		currDateTime = datetime.now()
 		dataDateTime = currDateTime.strftime("%Y-%m-%d %H:%M:%S") #dateTime format
 		
+		print("Temp: {:.1f} F / {:.1f} C    Humidity: {}% ".format(temperature_f, temperature_c, humidity))
+		
 		dataJSON = {
 			"DateTime": dataDateTime,
 			"Temp_C": temperature_c,
@@ -37,7 +40,9 @@ while True:
 		print(error.args[0])
 		
 		
-	time.sleep(1)   # Time intervals between samples, uncomment to switch
+	time.sleep(2)   
+	# Time intervals between samples, uncomment to switch
+	#waitTime =3600 #  1 hour
 	#waitTime =1800 # 30 minutes
 	#waitTime =900  # 15 minutes
 	waitTime = 300  #  5 minutes
@@ -58,4 +63,5 @@ while True:
 		time.sleep(waitTime)
 	else:
 		time.sleep(5)
+		
 		
